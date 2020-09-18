@@ -1,0 +1,63 @@
+
+<section>
+<div class="container">
+	<div class="form__top">
+		<h2>Formulario <span>Registro</span></h2>
+	</div>
+   <div class="form__reg" >
+      <form class="form__reg" method="POST" action="/admin">
+	      <input type="text" disabled="false" id="id">
+          <input name="nombre" class="input" type="text" id="nombre"  placeholder="&#128021;  nombre" required autofocus>
+	      <input name="edad" class="input" type="text" id="edad" placeholder="&#128021;  edad" required autofocus>
+	      <input name="raza" class="input" type="text" id="raza"  placeholder="&#128021;  raza" required autofocus>
+	      <input name="tamano" class="input" type="text" id="tamaño"  placeholder="&#128021;  tamaño" required autofocus>
+	      <input name="sexo" class="input" type="text" id="sexo"  placeholder="&#128021;  sexo" required autofocus>
+	      <input name="caracter" class="input" type="text" id="caracter"  placeholder="&#128021;  caracter" required autofocus>
+	      <input name="enfermedad" class="input" type="text" id="enfermedad"  placeholder="&#128021;  enfermedad" required autofocus>
+          <div >		
+	          <button  class="btn__for" type="submit">GUARDAR</button>  		
+	      </div>
+       </form>	                 
+   </div>
+    <div class="col">
+		<div class="formatotop">
+		   <h2>LISTADO <span>DE ANIMALES</span></h2>
+		</div>
+        
+		<div class="table-responsive">	
+			<table class="table table-bordered">
+				<thead>
+				   <tr>
+						<th scope="col">NOMBRE</th>
+						<th scope="col">EDAD</th>
+						<th scope="col">RAZA</th>
+						<th scope="col">TAMAÑO</th>
+						<th scope="col">SEXO</th>
+						<th scope="col">CARACTER</th>
+						<th scope="col">ENFERMEDAD</th>
+						<th scope="col"></th>
+					</tr>
+				</thead>
+				<tbody>
+                    {{#each mascota}}
+                      <tr>
+				          <td>{{nombre}}</td>
+				          <td>{{edad}}</td>
+				          <td>{{raza}} </td>
+				          <td>{{tamano}}</td>
+				          <td>{{sexo}}</td>
+                          <td>{{caracter}}</td>
+                          <td>{{enfermedad}} </td>
+                          <td>
+                              <button onclick="eliminar('${doc.id}')" class="danger"></i>Eliminar</button>
+                              <button id="caja"onclick="editar('${doc.id}')" class="info"></i>Editar</button>
+                              <button id="actualizar(${doc.id})" onclick="actualizar()" >Actualizar</button>
+                           </td>
+			           </tr> 
+                    {{/each}}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+</section>
